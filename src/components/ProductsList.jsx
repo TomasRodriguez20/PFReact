@@ -9,20 +9,20 @@ export default function ProductsList({ category }) {
 
   useEffect(() => {
     getProducts.then((data) => {
-      // Filtra los productos si hay una categoría
+      
       if (category) {
         setProducts(data.filter((product) => product.category === category));
       } else {
-        setProducts(data); // Muestra todos los productos si no hay categoría
+        setProducts(data);
       }
     });
-  }, [category]); // Agrega category como dependencia
+  }, [category]);
 
   return (
     <>
       <section style={{ display: 'flex', gap: 10 }}>
         {products.map((product) => (
-          <ProductCard key={product.id} product={product} /> // Asegúrate de usar product.id como key
+          <ProductCard key={product.id} product={product} />
         ))}
       </section>
     </>
